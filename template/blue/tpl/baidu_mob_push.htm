@@ -1,0 +1,36 @@
+<?php echo '<?';?>xml version="1.0" encoding="{mcharset}"<?php echo '?>';?>
+<?php 
+defined('IN_MOBILE') || define('IN_MOBILE', TRUE); 
+$is_bz = cls_env::getBaseIncConfigs('is_bz');
+?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.baidu.com/schemas/sitemap-mobile/1/">
+    {c$baidu_zixun [tclass=archives/] [chids=2/] [chsource=2/] [limits=10/] [isfunc=1/] [wherestr=baidu_push(0)/]}
+    <url>
+        <loc><?=htmlspecialchars($v['arcurl'])?></loc>
+        <mobile:mobile type="mobile"/>
+        <lastmod><?=date('Y-m-d',$v['updatedate'])?></lastmod>
+        <changefreq>daily</changefreq> 
+        <priority>0.8</priority>
+    </url>
+    {/c$baidu_zixun}
+    {if empty($is_bz) && !cmod('moder')}
+    {c$baidu_old [tclass=members/] [chsource=2/] [chids=3/] [limits=10/] [isfunc=1/] [wherestr=baidu_push(1)/]}
+    <url>
+        <loc><?=htmlspecialchars($mobileurl."index.php?caid=551&addno=5&mid=$v[mid]")?></loc>
+        <mobile:mobile type="mobile"/>
+        <lastmod><?=date('Y-m-d',$v['regdate'])?></lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    {/c$baidu_old}
+    {/if}
+    {c$baidu_new [tclass=members/] [chsource=2/] [chids=2/] [limits=10/] [isfunc=1/] [wherestr=baidu_push(1)/]}
+    <url>
+        <loc><?=htmlspecialchars($mobileurl."index.php?caid=1&addno=7&mid=$v[mid]")?></loc>
+        <mobile:mobile type="mobile"/>
+        <lastmod><?=date('Y-m-d',$v['regdate'])?></lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    {/c$baidu_new}
+</urlset>

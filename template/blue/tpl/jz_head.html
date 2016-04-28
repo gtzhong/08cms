@@ -1,0 +1,33 @@
+{tpl$head}
+<link rel="stylesheet" href="{$tplurl}css/jz_head.css?{$user_version}">
+<div class="blank5"></div>
+<div id="jiazhuang">
+<div class="area mtj10">
+    <div class="topad r">
+        <!--logo右790_70--><div id="_08_adv_fcatalog144"></div>
+    </div>
+    <div class="jzmlogo l">
+    <a href="{c$jzurl [tclass=cnode/] [listby=ca/] [casource=509/]}{indexurl}{/c$jzurl}"> <img {c$image [cname=头部站点logo/] [tclass=image/] [tname=user_jz_logo/]}src="{url}" width="200" height="70" {/c$image} alt="{hostname}" />
+    </a>
+    </div>
+</div>
+<?php $mchid = empty($mchid)? '' : (int)$mchid;?>
+{if @$hidenav!=1}
+<div class="jznav mT10">
+    <div class="jznavlist">
+    <a href="{c$cnode [cname=家装链接/] [tclass=cnode/] [listby=ca/] [casource=509/]}{indexurl}{/c$cnode}" class="{if !empty($caid) && $caid==509}act{/if}">家装首页</a><em></em>
+    <a class="{if @$hd_caid==504}act{/if}" href="{c$cnode [cname=家装快讯/] [tclass=cnode/] [listby=ca/] [casource=504/]}{indexurl1}{/c$cnode}">家装快讯</a><em></em>
+    <a href="{c$mcnode [cname=装修公司链接/] [tclass=mcnode/] [cnsource=ugid31/] [cnid=101/]}{mcnurl1}{/c$mcnode}" class="{if !empty($ugid31) || $mchid==11}act{/if}">装修公司</a><em></em>
+    <a href="{c$cnode [cname=设计师/] [tclass=cnode/] [listby=ca/] [casource=510/]}{indexurl1}{/c$cnode}" class="{if @$caid==510}act{/if}">设计师</a><em></em>
+    <a href="{c$cnode [cname=家装案例/] [tclass=cnode/] [listby=ca/] [casource=511/]}{indexurl1}{/c$cnode}" class="{if @$caid==511}act{/if}">家装案例</a><em></em>
+    <a href="{c$mcnode [cname=品牌商家列表/] [tclass=mcnode/] [cnsource=ugid32/] [cnid=103/]}{mcnurl1}{/c$mcnode}" class="{if !empty($ugid32) || $mchid==12 }act{/if}">品牌商家</a><em></em>
+    <a href="{c$cnode [cname=商品列表链接/] [tclass=cnode/] [listby=ca/] [casource=513/]}{indexurl1}{/c$cnode}" class="{if @$caid == 513}act{/if}">商品</a><em></em>
+    <a href="{c$cnode [cname=团购节点链接/] [tclass=cnode/] [listby=ca/] [casource=515/]}{indexurl1}{/c$cnode}" class="{if @$caid == 515}act{/if}">团购</a><em></em>
+    <a href="{c$cnode [cname=公司动态/] [tclass=cnode/] [listby=ca/] [casource=512/]}{indexurl1}{/c$cnode}" class="{if @$caid == 512}act{/if}">公司动态</a><em></em>
+    <a href="{c$freeurl [tclass=freeurl/] [fid=201/]}{/c$freeurl}" class="{if @$fid==201}act{/if}">量房申请</a>
+    <div class="blank0"></div>
+    </div>
+</div>
+{/if}
+</div>
+<div class="blank5"></div>
